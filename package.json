@@ -1,0 +1,21 @@
+{
+  "name": "magento-tech-assessment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:chrome:ui": "playwright test --project=chromium --ui",
+    "test:firefox:ui": "playwright test --project=firefox --ui",
+    "test:webkit:ui": "playwright test --project=webkit --ui",
+    "test:chrome:headless": "playwright test --project=chromium",
+    "test:firefox:headless": "playwright test --project=firefox",
+    "test:webkit:headless": "playwright test --project=webkit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.43.0",
+    "@types/node": "^20.12.7"
+  }
+}
