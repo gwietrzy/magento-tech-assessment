@@ -1,7 +1,7 @@
 import test, { expect } from "@playwright/test";
-import { Home } from "../utils/pages/home";
+import { Home } from "../utils/views/home";
 import playwrightConfig from '../../playwright.config';
-import { Login } from "../utils/pages/login";
+import { Login } from "../utils/views/login";
 import users from "../fixtures/users.json";
 import { Messages } from "../utils/enums";
 

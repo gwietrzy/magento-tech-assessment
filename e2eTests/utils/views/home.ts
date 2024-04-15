@@ -12,6 +12,7 @@ export class Home {
   readonly createAccountLink: Locator;
   readonly customerMenuButton: Locator;
   readonly customerMenuOption: Locator;
+  readonly cartCounter: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -24,6 +25,7 @@ export class Home {
     this.createAccountLink = page.locator('a[href="/customer/account/create/"]');
     this.customerMenuButton = page.locator('button[data-action="customer-menu-toggle"]').nth(1);
     this.customerMenuOption = page.locator('div.customer-menu li');
+    this.cartCounter = page.locator('span.counter-number');
   }
 
   async goto() {
@@ -49,5 +51,10 @@ export class Home {
   async openCustomerMenuAndSelectOption(option: CustomerMenuOptions) {
     await this.customerMenuButton.click();
     await this.customerMenuOption.getByText(option).click();
+  }
+
+  async searchItem(item: string) {
+    await this.searchInput.fill(item);
+    await this.searchInput.press('Enter');
   }
 }

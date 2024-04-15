@@ -19,5 +19,4 @@ export class CustomerMenu {
 async selectItem(item: CustomerSideBarOptions) {
     await this.sideBarItem.getByText(item).click();
   }
-  
 }

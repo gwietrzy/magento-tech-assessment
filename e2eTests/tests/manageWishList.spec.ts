@@ -1,11 +1,11 @@
 import test, { expect } from "@playwright/test";
-import { WishList } from "../utils/pages/customerMenu/wishList";
-import { Home } from "../utils/pages/home";
-import { Login } from "../utils/pages/login";
+import { WishList } from "../utils/views/customerMenu/wishList";
+import { Home } from "../utils/views/home";
+import { Login } from "../utils/views/login";
 import users from "../fixtures/users.json";
-import { CustomerMenu } from "../utils/pages/customerMenu/customerMenu";
+import { CustomerMenu } from "../utils/views/customerMenu/customerMenu";
 import { CustomerSideBarOptions, Messages } from "../utils/enums";
-import { Product } from "../utils/pages/product";
+import { Product } from "../utils/views/product";
 
 test.describe('Manage wish list', () => {
   let wishList: WishList;
@@ -27,14 +27,14 @@ test.describe('Manage wish list', () => {
     await customerMenu.verifyPageTitleHeader(CustomerSideBarOptions.MY_ACCOUNT);
   });
 
-  test('remove all items if added to have empty wish list', async ({ page }) => {
+  test('remove all items if added to have empty wish list', async () => {
     await customerMenu.selectItem(CustomerSideBarOptions.MY_WISHLIST);
     await customerMenu.verifyPageTitleHeader(CustomerSideBarOptions.MY_WISHLIST);
     await wishList.removeAllItemsFromWishList();
     await wishList.verifyEmptyWishListMessage();
   });
 
-  test('add item to wish list and verify if added', async ({ page }) => {
+  test('add item to wish list and verify if added', async () => {
     await home.goto();
     const productName = await product.productTitle.first().innerText();
     await product.productItem.first().hover();

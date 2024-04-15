@@ -2,21 +2,15 @@ import { Locator, Page, expect } from "@playwright/test";
 import { Messages } from "../../enums";
 import { Product } from "../product";
 
-export class WishList {
-  readonly page: Page;
+export class WishList  extends Product{
   readonly product: Product;
-  readonly messageInfoEmpty: Locator;
-  readonly messageInfoSuccess: Locator;
   readonly productsList: Locator;
   readonly productListItem: Locator;
   readonly updateButton: Locator;
   readonly removeProductButton: Locator;
 
   constructor(page: Page) {
-    this.page = page;
-    this.product = new Product(page);
-    this.messageInfoEmpty = page.locator('div[class="message info empty"]');
-    this.messageInfoSuccess = page.locator('div.message-success');
+    super(page);
     this.productsList = page.locator('div[class="products-grid wishlist"]');
     this.productListItem = page.locator('div[class="products-grid wishlist"] li.product-item');
     this.removeProductButton = page.locator('a[title="Remove This Item"]');
