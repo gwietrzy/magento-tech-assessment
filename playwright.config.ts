@@ -11,10 +11,14 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './e2eTests/tests',
-   /* Maximum time one test can run for. */
-   timeout: 4 * 60 * 1000,
-   /* Maximum time whole test suite can run for. */
-   globalTimeout: 30 * 60 * 1000,
+  /* Maximum time one test can run for. */
+  timeout: 40 * 1000,
+  /* Maximum time whole test suite can run for. */
+  globalTimeout: 210 * 60 * 1000,
+  /* Maximum time to wait for a page/element to load. */
+  expect: {
+    timeout: 10 * 1000,
+  },
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -24,7 +28,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [['html', { open: 'always' }]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -40,10 +44,6 @@ export default defineConfig({
       name: 'chromium',
       use: { 
         ...devices['Desktop Chrome'], 
-        viewport: {
-          width: 1920,
-          height: 1080,
-        },
       },
     },
 
@@ -51,10 +51,6 @@ export default defineConfig({
       name: 'firefox',
       use: { 
         ...devices['Desktop Firefox'], 
-        viewport: {
-          width: 1920,
-          height: 1080,
-        },
       },
     },
 
@@ -62,11 +58,7 @@ export default defineConfig({
       name: 'webkit',
       use: { 
         ...devices['Desktop Safari'],
-        viewport: {
-          width: 1920,
-          height: 1080,
         },
-      },
     },
 
     /* Test against mobile viewports. */

@@ -20,6 +20,6 @@ export class Product extends Common {
   }
 
   async waitForAddToCartResponse() {
-    return await this.page.waitForResponse('**/checkout/cart/add/**');
+    return await this.page.waitForResponse('https://magento.softwaretestingboard.com/checkout/cart/add/**');
   }
 }

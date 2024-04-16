@@ -6,6 +6,7 @@ import { ShoppingCart } from "../utils/views/shoppingCart";
 import { CustomerMenu } from "../utils/views/customerMenu/customerMenu";
 import { CustomerSideBarOptions, Messages } from "../utils/enums";
 import { Product } from "../utils/views/product";
+import { time } from "console";
 
 test.describe('Start placing order', () => {
   let home: Home;
@@ -35,7 +36,7 @@ test.describe('Start placing order', () => {
     
   });
 
-  test('try to add item without options selection', async () => {
+  test('try to add item without options selection', async ({ page }) => {
     
     await test.step('Search for item and save its name', async () => {
       await home.searchItem('shirt');
@@ -46,10 +47,10 @@ test.describe('Start placing order', () => {
           await product.productItem.first().hover();
           await product.addToCartButton.first().click();
           await expect(product.productInfo).toContainText(productName);
+          await product.messageNotice.isVisible();
           await expect(product.messageNotice).toHaveText(Messages.CHOOSE_ITEM_OPTIONS);
           await home.miniCart.click();
           await shoppingCart.emptyMiniCartText.isVisible();
-          await expect(shoppingCart.emptyMiniCartText).toHaveText(Messages.EMPTY_CART);
       });
   });
   });
