@@ -21,10 +21,12 @@ test.describe('Manage wish list', () => {
     customerMenu = new CustomerMenu(page);
     product = new Product(page);
 
-    await login.goto();
-    await home.acceptCookies();
-    await login.as(users.testUser.email, users.testUser.password);
-    await customerMenu.verifyPageTitleHeader(CustomerSideBarOptions.MY_ACCOUNT);
+    await test.step('Login using valid credentials', async () => {
+      await login.goto();
+      await home.acceptCookies();
+      await login.as(users.testUser.email, users.testUser.password);
+      await customerMenu.verifyPageTitleHeader(CustomerSideBarOptions.MY_ACCOUNT);
+    });
   });
 
   test('remove all items if added to have empty wish list', async () => {
@@ -39,6 +41,7 @@ test.describe('Manage wish list', () => {
     const productName = await product.productTitle.first().innerText();
     await product.productItem.first().hover();
     await product.addToWishlistButton.first().click();
+
     await customerMenu.verifyPageTitleHeader(CustomerSideBarOptions.MY_WISHLIST);
     await expect(wishList.messageInfoSuccess).toContainText(productName + Messages.SUCCESS_WISHLIST_ADD);
     await expect(wishList.productsList).toContainText(productName);

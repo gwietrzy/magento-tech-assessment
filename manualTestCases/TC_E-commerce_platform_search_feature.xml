@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<project>
+    <projectId>11400</projectId>
+    <projectKey>SB</projectKey>
+    <modelVersion>1.0</modelVersion>
+    <jiraVersion>9.11.3</jiraVersion>
+    <exportDate>2024-04-17 17:00:54 UTC</exportDate>
+    <folders>
+        <folder fullPath="System test" index="1"/>
+    </folders>
+    <testCases>
+        <testCase id="2890" key="SB-T131">
+            <attachments/>
+            <confluencePageLinks/>
+            <createdBy>Grzegorz Wietrzyński</createdBy>
+            <createdOn>2024-04-17 18:14:37 UTC</createdOn>
+            <customFields/>
+            <folder><![CDATA[System test]]></folder>
+            <issues/>
+            <labels/>
+            <name><![CDATA[E-commerce platform - search items functionality]]></name>
+            <objective><![CDATA[<p>Search Functionality within the e-commerce platform:</p><p>   - Evaluate the search feature's functionality,</p><p>   - Ensure search results are relevant and correctly displayed.</p>]]></objective>
+            <owner>JIRAUSER16807</owner>
+            <precondition><![CDATA[Internet connection and web browser needs to be available. ]]></precondition>
+            <priority><![CDATA[Normal]]></priority>
+            <status><![CDATA[Approved]]></status>
+            <parameters/>
+            <testScript type="steps">
+                <steps>
+                    <step index="0">
+                        <customFields/>
+                        <description><![CDATA[<strong>Given </strong>I have opened Internet browser<br /><strong>When </strong>I visit URL address: "https://magento.softwaretestingboard.com/"]]></description>
+                        <expectedResult><![CDATA[<strong>Then </strong>e-commerce platform main page is displayed: <br /><br /><img src="../rest/tests/1.0/attachment/image/5383" style="width:423px" class="fr-fic fr-fil fr-dib" />]]></expectedResult>
+                    </step>
+                    <step index="1">
+                        <customFields/>
+                        <description><![CDATA[<strong>When </strong>I type some random special characters within search input that can be found on the up left corner of the page]]></description>
+                        <expectedResult><![CDATA[<strong>Then </strong>typed characters are displayed]]></expectedResult>
+                        <testData><![CDATA[e.g. !@#**, **&amp;$^$#]]></testData>
+                    </step>
+                    <step index="2">
+                        <customFields/>
+                        <description><![CDATA[<strong>When </strong>I start searching by clicking {enter} on keyboard]]></description>
+                        <expectedResult><![CDATA[<strong>Then </strong>searching results are displayed<br /><strong>And </strong>typed characters are displayed right after 'Search results for: ' phrase:<br /><br /><img src="../rest/tests/1.0/attachment/image/5384" style="width:431px" class="fr-fic fr-fil fr-dib" /><br />]]></expectedResult>
+                    </step>
+                    <step index="3">
+                        <customFields/>
+                        <description><![CDATA[n/a]]></description>
+                        <expectedResult><![CDATA[<strong>And </strong>in case of no result after search, message notification is displayed:<br /><br /><img src="../rest/tests/1.0/attachment/image/5385" style="width:425px" class="fr-fic fr-fil fr-dib" />]]></expectedResult>
+                    </step>
+                    <step index="4">
+                        <customFields/>
+                        <description><![CDATA[<strong>When </strong>I search again by typing some existing garment]]></description>
+                        <expectedResult><![CDATA[<strong>Then </strong>products that match searched phrase are displayed:<br /><br /><img src="../rest/tests/1.0/attachment/image/5386" style="width:541px" class="fr-fic fr-fil fr-dib" />]]></expectedResult>
+                        <testData><![CDATA[e.g. t-shirt. shoes]]></testData>
+                    </step>
+                    <step index="5">
+                        <customFields/>
+                        <description><![CDATA[<em>(if the number of results is bigger than maximum number of  items that can be displayed on the page at once (currently max is 36 products))</em>]]></description>
+                        <expectedResult><![CDATA[<strong>Then </strong>results are displayed using pagination<br /><strong>And </strong>switching between pages needs to be done to see all results:<br /><br /><img src="../rest/tests/1.0/attachment/image/5390" style="width:300px" class="fr-fic fr-fil fr-dib" />]]></expectedResult>
+                    </step>
+                    <step index="6">
+                        <customFields/>
+                        <description><![CDATA[<strong>When </strong>I scroll to fully see one of the product]]></description>
+                        <expectedResult><![CDATA[<strong>Then </strong>following data should be displayed:<ul><li>product photo (if available),</li><li>product name,</li><li>final price,</li><li>sizes (if applicable),</li><li>colors (if applicable).<br /><br /></li></ul><img src="../rest/tests/1.0/attachment/image/5389" style="width:166px" class="fr-fic fr-fil fr-dib" />]]></expectedResult>
+                    </step>
+                    <step index="7">
+                        <customFields/>
+                        <description><![CDATA[<strong>When </strong>I hover over to one of the product]]></description>
+                        <expectedResult><![CDATA[<strong>Then </strong>additional buttons are displayed:<ul><li>add to cart,</li><li>add to wish list, </li><li>add to compare.<br /><br /></li></ul><img src="../rest/tests/1.0/attachment/image/5388" style="width:157px" class="fr-fic fr-fil fr-dib" />]]></expectedResult>
+                    </step>
+                </steps>
+            </testScript>
+            <updatedBy>Grzegorz Wietrzyński</updatedBy>
+            <updatedOn>2024-04-17 19:00:10 UTC</updatedOn>
+        </testCase>
+    </testCases>
+</project>
