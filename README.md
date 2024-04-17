@@ -28,12 +28,12 @@ Please follow the following steps for successful installation:
     ```  
 
 ###  :package: Commands
-1. To run the test suit please run '**test:chrome:headless**' npm script:
+1. To run the test suit please run ```playwright test --project=chromium``` command in your terminal:
 
    ![image](https://github.com/gwietrzy/magento-tech-assessment/assets/42980349/e50c589f-0525-481f-95eb-b1396ff2c75f)
 
-2. HTML test report should be automatically displayed after all test suit run will be finished.
-   If because of some reasons it won't be opened, please run '**test:show:report**' npm scrpit:
+2. HTML test report should be automatically displayed after whole test suit run will be finished.
+   If because of some reasons it won't be opened, please run ```npx playwright show-report``` command in your terminal:
 
    ![image](https://github.com/gwietrzy/magento-tech-assessment/assets/42980349/cc76264d-9e87-4c7e-8ab6-af3588947172)
 
